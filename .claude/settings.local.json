@@ -1,0 +1,22 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(cp \"d:/HA/新建文件夹/demo1/Assets/JiaoBeng/状态机系统完整讲解.md\" /tmp/player_state.md)",
+      "Bash(cp \"d:/HA/新建文件夹/demo1/Assets/JiaoBeng/颜料系统完整讲解.md\" /tmp/paint.md)",
+      "Bash(pip install *)",
+      "Bash(python3)",
+      "Bash(touch /tmp/annotate.py 2>/dev/null; echo \"ok\")",
+      "Read(//usr/**)",
+      "Read(//c/Users/xieji/AppData/Local/Programs/Python/**)",
+      "Bash(git init *)",
+      "Bash(git add *)",
+      "Bash(cmd /c \"cd /d d:\\\\HA\\\\新建文件夹\\\\demo1 && git init && git add . && git status\")",
+      "Bash(rm \"d:/HA/新建文件夹/demo1/Assets/JiaoBeng/\"*.html \"d:/HA/新建文件夹/demo1/Assets/JiaoBeng/\"*.md \"d:/HA/新建文件夹/demo1/Assets/JiaoBeng/\"*.docx)",
+      "Bash(python -c \"import os,glob;[os.remove\\(f\\) for f in glob.glob\\('d:/HA/新建文件夹/demo1/Assets/JiaoBeng/*.html'\\)+glob.glob\\('d:/HA/新建文件夹/demo1/Assets/JiaoBeng/*.md'\\)+glob.glob\\('d:/HA/新建文件夹/demo1/Assets/JiaoBeng/*.docx'\\)];print\\('done'\\)\")"
+    ],
+    "additionalDirectories": [
+      "\\tmp",
+      "d:\\HA\\新建文件夹\\demo1\\Assets\\JiaoBeng"
+    ]
+  }
+}
