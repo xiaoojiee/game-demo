@@ -20,15 +20,12 @@ public struct PaintSpreadSettings
     [Tooltip("椭圆宽高比：1 = 正圆，大于1 = 横向椭圆，小于1 = 纵向椭圆")]
     public float aspectRatio;
 
-    [Header("颜料滴控制（0表示不覆盖默认值）")]
-    [Tooltip("染色概率（0~1）。0=不覆盖，用PaintDrop预制体默认值")]
-    [Range(0f, 1f)] public float paintChance;
-    [Tooltip("最小缩放（>0才覆盖默认值）")]
-    public float sizeMin;
-    [Tooltip("最大缩放（>0才覆盖默认值）")]
-    public float sizeMax;
     [Tooltip("是否受玩家颜料池限制（怪物设为 false）")]
     public bool limitByPaintMeter;
+
+    [HideInInspector] public float paintChance;
+    [HideInInspector] public float sizeMin;
+    [HideInInspector] public float sizeMax;
 }
 
 public class PaintManager : Singleton<PaintManager>

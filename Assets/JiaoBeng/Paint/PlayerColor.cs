@@ -26,29 +26,17 @@ public class PlayerColor : Singleton<PlayerColor>
         CurrentColorIndex = 0;
     }
 
-    // 按1/2切换颜色
+    // 滚轮切换颜色
     private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Alpha1))
+        float scroll = Input.GetAxis("Mouse ScrollWheel");
+        if (Mathf.Abs(scroll) > 0.01f)
         {
-            int nextIndex = CurrentColorIndex + 1;
-            if (nextIndex >= colorPresets.Length)
-            {
-                nextIndex = 0;
-            }
-            // 切换颜色索引+广播事件
+            int dir = scroll > 0 ? 1 : -1;
+            int nextIndex = CurrentColorIndex + dir;
+            if (nextIndex >= colorPresets.Length) nextIndex = 0;
+            if (nextIndex < 0) nextIndex = colorPresets.Length - 1;
             SetColorByIndex(nextIndex);
-        }
-
-        if (Input.GetKeyDown(KeyCode.Alpha2))
-        {
-            int prevIndex = CurrentColorIndex - 1;
-            if (prevIndex < 0)
-            {
-                prevIndex = colorPresets.Length - 1;
-            }
-            // 切换颜色索引+广播事件
-            SetColorByIndex(prevIndex);
         }
     }
 

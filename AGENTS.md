@@ -2,13 +2,13 @@
 - Project name: demo1
 - Unity version: Unity 2022.3.62f3c1
 - Active scene:
-  - Name: 1
+  - Name: Game
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Monster, WuKuai, Block, 柱子
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Water, UI, Player, Monstar, DiMian, Hit, Slash, Boss, MonsterHit, 柱子, Drop
+    - Default, TransparentFX, Ignore Raycast, Water, UI
 - Active game object:
-  - Name: PaintManager
+  - Name: DoubleJumpPaint
   - Tag: Untagged
-  - Layer: Default
+  - Layer: 6
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->
