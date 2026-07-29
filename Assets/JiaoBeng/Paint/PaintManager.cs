@@ -81,6 +81,9 @@ public class PaintManager : Singleton<PaintManager>
     // 地面溅射染色
     public void SpawnSplat(Vector3 pos, Vector2 normal, Color color, PaintSpreadSettings settings = default)
     {
+        // 场景重载后旧引用可能已销毁，重新查找
+        if (groundTilemap == null)
+            groundTilemap = FindObjectOfType<Tilemap>();
         if (groundTilemap == null) return;
         // 椭圆扩散+指数衰减染色
         ProcessTilemap(groundTilemap, pos, normal, color, settings);

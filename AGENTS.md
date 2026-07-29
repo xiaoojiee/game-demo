@@ -4,11 +4,11 @@
 - Active scene:
   - Name: Game
   - Tags:
-    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController
+    - Untagged, Respawn, Finish, EditorOnly, MainCamera, Player, GameController, Monster, WuKuai, Block, 柱子
   - Layers:
-    - Default, TransparentFX, Ignore Raycast, Water, UI
+    - Default, TransparentFX, Ignore Raycast, Water, UI, Player, Monstar, DiMian, Hit, Slash, Boss, MonsterHit, 柱子, Drop
 - Active game object:
-  - Name: DoubleJumpPaint
+  - Name: Trail
   - Tag: Untagged
-  - Layer: 6
+  - Layer: Player
 <!-- UNITY CODE ASSIST INSTRUCTIONS END -->

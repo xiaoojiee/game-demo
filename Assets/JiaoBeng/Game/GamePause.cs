@@ -5,6 +5,14 @@ public class GamePause : MonoBehaviour
 {
     public GameObject pausePanel;
 
+    private void Start()
+    {
+        // 场景加载时确保暂停面板隐藏 + 时间正常
+        if (pausePanel != null)
+            pausePanel.SetActive(false);
+        Time.timeScale = 1f;
+    }
+
     private void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))

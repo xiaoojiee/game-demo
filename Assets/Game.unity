@@ -309,6 +309,17 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 179985236}
   m_CullTransparentMesh: 1
+--- !u!114 &442804181 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3051278463662858467, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+  m_PrefabInstance: {fileID: 1951151365799535825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6154197d82e984141b096e43fdbc6b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &446719895
 GameObject:
   m_ObjectHideFlags: 0
@@ -40256,6 +40267,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1438950951 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+  m_PrefabInstance: {fileID: 1951151365799535825}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6154197d82e984141b096e43fdbc6b00, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468270693
 GameObject:
   m_ObjectHideFlags: 0
@@ -41380,6 +41402,10 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 101466820718395599, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.3
+      objectReference: {fileID: 0}
+    - target: {fileID: 101466820718395599, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: spreadSettings.paintChance
       value: 0.05
       objectReference: {fileID: 0}
@@ -41390,6 +41416,30 @@ PrefabInstance:
     - target: {fileID: 1947604105890533290, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: APS
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: maxSize
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: minSize
+      value: 0.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: dropCount
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: colorSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.31
+      objectReference: {fileID: 0}
+    - target: {fileID: 2094469247384469770, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: triggerMode
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2350745136455194270, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: APS
@@ -41403,13 +41453,65 @@ PrefabInstance:
       propertyPath: trailShape
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 2366330242047349940, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: burstSpawner
+      value: 
+      objectReference: {fileID: 1438950951}
+    - target: {fileID: 2366330242047349940, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: trailSpawner
+      value: 
+      objectReference: {fileID: 442804181}
+    - target: {fileID: 2507277830091372300, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.3
+      objectReference: {fileID: 0}
     - target: {fileID: 2507277830091372300, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: spreadSettings.paintChance
       value: 0.02
       objectReference: {fileID: 0}
+    - target: {fileID: 2662882153252864171, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662882153252864171, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: triggerMode
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662882153252864171, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: speedRange.x
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2662882153252864171, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: speedRange.y
+      value: 30
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051278463662858467, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: colorSource
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051278463662858467, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.37
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051278463662858467, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: speedRange.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3051278463662858467, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: speedRange.y
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 5026424708994931194, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: APS
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 5927794940112091588, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: paintChance
+      value: 0.2
+      objectReference: {fileID: 0}
+    - target: {fileID: 6180473296229840828, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
+      propertyPath: spreadSettings.decayRatio
+      value: 0.3
       objectReference: {fileID: 0}
     - target: {fileID: 6180473296229840828, guid: c586427c5bbe36144b81a260c1ce551f, type: 3}
       propertyPath: spreadSettings.paintChance

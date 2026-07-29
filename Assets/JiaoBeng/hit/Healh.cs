@@ -10,13 +10,21 @@ public class Healh : MonoBehaviour,IDamage
     public float destroyDelay=0f;
     public event Action<Damage> OnHurt;
     public event Action<Transform> OnDeath;
-    private int hp;
-    public int CurrentHp => hp;
-   
+    private int hp = -1;
+    // 延迟初始化：ScaleByHealth 可能在 Healh.Start 前读取，用 -1 哨兵确保值正确
+    public int CurrentHp
+    {
+        get
+        {
+            if (hp < 0) hp = maxHp;
+            return hp;
+        }
+    }
+
     private bool isInCooldown;
     private void Start()
     {
-        hp = maxHp;
+        if (hp < 0) hp = maxHp;
     }
     // 扣血+触发事件
     public void TakeDamage(Damage damage)
