@@ -1187,7 +1187,6 @@ MonoBehaviour:
   currentWeapon: {fileID: 0}
   unarmedSenders:
   - {fileID: 770841136}
-  handItemSlot: {fileID: 0}
 --- !u!65 &139617671
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1255,6 +1254,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startMaterials:
   - material: {fileID: 11400000, guid: aabe6777cbfecab4ba2535ffad300343, type: 2}
+    count: 50
+  - material: {fileID: 11400000, guid: 3aa7e299cafb0f841b40e58cf64f6ab6, type: 2}
     count: 50
 --- !u!1 &140699145
 GameObject:

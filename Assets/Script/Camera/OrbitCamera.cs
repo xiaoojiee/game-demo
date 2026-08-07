@@ -16,7 +16,7 @@ public class OrbitCamera : MonoBehaviour
     public float zoomSpeed = 3f;
 
     [Header("旋转灵敏度")]
-    public float rotateSpeed = 100f;
+    public float rotateSpeed = 0.5f;   // 鼠标灵敏度，不用乘deltaTime
 
     [Header("上下限制")]
     [Range(-60f, 0f)]  public float minPitch = -40f;
@@ -49,9 +49,8 @@ public class OrbitCamera : MonoBehaviour
     {
         if (target == null) return;
 
-        // —— 鼠标旋转 ——
-        yaw   += Input.GetAxis("Mouse X") * rotateSpeed * Time.deltaTime;
-        pitch -= Input.GetAxis("Mouse Y") * rotateSpeed * Time.deltaTime;
+        yaw   += Input.GetAxis("Mouse X") * rotateSpeed;
+        pitch -= Input.GetAxis("Mouse Y") * rotateSpeed;
         pitch  = Mathf.Clamp(pitch, minPitch, maxPitch);
 
         // —— 自动跟随（直接从 yaw 算方向，不依赖相机 Forward，消除反馈环） ——

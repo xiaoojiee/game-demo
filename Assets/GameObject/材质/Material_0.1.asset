@@ -18,9 +18,9 @@ MonoBehaviour:
   bladeCost: 2
   handleCost: 1
   guardCost: 1
-  bladePrefab: {fileID: 0}
-  handlePrefab: {fileID: 0}
-  guardPrefab: {fileID: 0}
-  bladeSprite: {fileID: 0}
-  handleSprite: {fileID: 0}
-  guardSprite: {fileID: 0}
+  bladePrefab: {fileID: 3585423186169519723, guid: a5eedda3f2b3ba14f8df2b70a1a7ad6a, type: 3}
+  handlePrefab: {fileID: 7152487833972483275, guid: 2d94c734c7c06044ea2cafcb22df9aa3, type: 3}
+  guardPrefab: {fileID: 4215263044147019150, guid: 58f2eb09bb9ec114fa98d64b37fcc1cf, type: 3}
+  bladeSprite: {fileID: 21300000, guid: d4c0b6fc84b5d074d94e580438fc19e4, type: 3}
+  handleSprite: {fileID: 21300000, guid: 32dd55cc88a0222419cd1283ee3235b6, type: 3}
+  guardSprite: {fileID: 21300000, guid: 4083499ad874b0d45b9352e329791a72, type: 3}
