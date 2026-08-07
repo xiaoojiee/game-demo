@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Tilemaps;
+using UnityEngine.SceneManagement;
 
 [System.Serializable]
 public struct PaintSpreadSettings
@@ -52,8 +53,36 @@ public class PaintManager : Singleton<PaintManager>
     {
         base.Awake();
         transform.parent = null;
-        if (groundTilemap == null)
-            groundTilemap = FindObjectOfType<Tilemap>();
+        RefreshGroundTilemap();
+        // 场景重载时主动刷新 Tilemap 引用，避免指向已销毁对象
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        RefreshGroundTilemap();
+    }
+
+    private void RefreshGroundTilemap()
+    {
+        // 优先通过名字精确找 Ground Tilemap
+        var allTilemaps = FindObjectsOfType<Tilemap>();
+        foreach (var tm in allTilemaps)
+        {
+            if (tm.gameObject.name.Contains("Ground"))
+            {
+                groundTilemap = tm;
+                return;
+            }
+        }
+        // 找不到就叫 Ground 的，回退到第一个
+        if (allTilemaps.Length > 0)
+            groundTilemap = allTilemaps[0];
     }
 
     public static System.Func<float, bool> OnBeforeSpawn;
@@ -81,9 +110,7 @@ public class PaintManager : Singleton<PaintManager>
     // 地面溅射染色
     public void SpawnSplat(Vector3 pos, Vector2 normal, Color color, PaintSpreadSettings settings = default)
     {
-        // 场景重载后旧引用可能已销毁，重新查找
-        if (groundTilemap == null)
-            groundTilemap = FindObjectOfType<Tilemap>();
+        if (groundTilemap == null) RefreshGroundTilemap();
         if (groundTilemap == null) return;
         // 椭圆扩散+指数衰减染色
         ProcessTilemap(groundTilemap, pos, normal, color, settings);
