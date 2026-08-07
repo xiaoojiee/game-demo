@@ -68,5 +68,5 @@ public class CraftingStation : MonoBehaviour
             if (!s.IsEmpty()) { var (mat, cnt) = s.TakeAll(); storage.AddMaterial(mat, cnt); }
     }
 
-    public Sprite GetPreviewSprite() => recipe != null && AllSlotsFilled() && recipe.Matches(bladeSlot.material, handleSlot.material, guardSlot.material) ? recipe.GetResultIcon() : null;
+    public Sprite GetPreviewSprite() => recipe != null && AllSlotsFilled() && recipe.Matches(bladeSlot.material, handleSlot.material, guardSlot.material) ? recipe.GetResultIcon(bladeSlot.material, handleSlot.material, guardSlot.material) : null;
 }
