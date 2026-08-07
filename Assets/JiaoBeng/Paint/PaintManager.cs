@@ -48,13 +48,17 @@ public class PaintManager : Singleton<PaintManager>
     [Tooltip("外圈强度低于此值就卡住，不继续衰减，避免边缘太淡")]
     [Range(0f, 0.5f)] public float intensityFloor = 0f;
 
+    private string _groundTilemapName; // 记录 Inspector 赋的 Tilemap 名字，场景重载后精确找回
+
     // 单例初始化+找Tilemap
     protected override void Awake()
     {
         base.Awake();
         transform.parent = null;
-        RefreshGroundTilemap();
-        // 场景重载时主动刷新 Tilemap 引用，避免指向已销毁对象
+        // 记住 Inspector 赋的是哪个 Tilemap，场景重载后用名字精确找回
+        if (groundTilemap != null)
+            _groundTilemapName = groundTilemap.gameObject.name;
+        // 场景重载时主动刷新 Tilemap 引用
         SceneManager.sceneLoaded += OnSceneLoaded;
     }
 
@@ -65,26 +69,16 @@ public class PaintManager : Singleton<PaintManager>
 
     private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        RefreshGroundTilemap();
-    }
-
-    private void RefreshGroundTilemap()
-    {
-        // 引用还有效就不动，保留 Inspector 赋的值
-        // （场景重载后旧引用被销毁，Unity 判 !=null 为 false，才会重新查找）
+        // 引用还有效就不动（首次加载 Inspector 赋的值还在）
         if (groundTilemap != null) return;
 
-        var allTilemaps = FindObjectsOfType<Tilemap>();
-        foreach (var tm in allTilemaps)
+        // 场景重载：用名字精确找回原来那个 Tilemap
+        if (!string.IsNullOrEmpty(_groundTilemapName))
         {
-            if (tm.gameObject.name.Contains("Ground"))
-            {
-                groundTilemap = tm;
-                return;
-            }
+            GameObject go = GameObject.Find(_groundTilemapName);
+            if (go != null)
+                groundTilemap = go.GetComponent<Tilemap>();
         }
-        if (allTilemaps.Length > 0)
-            groundTilemap = allTilemaps[0];
     }
 
     public static System.Func<float, bool> OnBeforeSpawn;
@@ -112,7 +106,15 @@ public class PaintManager : Singleton<PaintManager>
     // 地面溅射染色
     public void SpawnSplat(Vector3 pos, Vector2 normal, Color color, PaintSpreadSettings settings = default)
     {
-        if (groundTilemap == null) RefreshGroundTilemap();
+        // 安全网：万一场景加载事件没触发到，这里兜底
+        if (groundTilemap == null)
+        {
+            if (!string.IsNullOrEmpty(_groundTilemapName))
+            {
+                GameObject go = GameObject.Find(_groundTilemapName);
+                if (go != null) groundTilemap = go.GetComponent<Tilemap>();
+            }
+        }
         if (groundTilemap == null) return;
         // 椭圆扩散+指数衰减染色
         ProcessTilemap(groundTilemap, pos, normal, color, settings);
