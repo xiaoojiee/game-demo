@@ -49,8 +49,11 @@ public class OrbitCamera : MonoBehaviour
     {
         if (target == null) return;
 
-        yaw   += Input.GetAxis("Mouse X") * rotateSpeed;
-        pitch -= Input.GetAxis("Mouse Y") * rotateSpeed;
+        if (Cursor.lockState == CursorLockMode.Locked)
+        {
+            yaw   += Input.GetAxis("Mouse X") * rotateSpeed;
+            pitch -= Input.GetAxis("Mouse Y") * rotateSpeed;
+        }
         pitch  = Mathf.Clamp(pitch, minPitch, maxPitch);
 
         // —— 自动跟随（直接从 yaw 算方向，不依赖相机 Forward，消除反馈环） ——
