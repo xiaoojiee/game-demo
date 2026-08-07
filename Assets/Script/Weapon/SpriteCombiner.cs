@@ -42,6 +42,6 @@ public static class SpriteCombiner
                 }
             }
         }
-        catch (System.Exception ex) { Debug.LogWarning($"SpriteCombiner.Overlay failed for {sprite.name}: {ex.Message}"); }
+        catch (System.Exception) { }
     }
 }
