@@ -13,9 +13,9 @@ public static class SpriteCombiner
         Color[] result = new Color[w * h];
         for (int i = 0; i < result.Length; i++) result[i] = Color.clear;
 
-        Overlay(result, guard,  w, h);
-        Overlay(result, handle, w, h);
         Overlay(result, blade,  w, h);
+        Overlay(result, handle, w, h);
+        Overlay(result, guard,  w, h);  // 护手在最顶层
 
         tex.SetPixels(result);
         tex.Apply();
@@ -42,6 +42,6 @@ public static class SpriteCombiner
                 }
             }
         }
-        catch (UnityException) { }
+        catch (System.Exception) { }
     }
 }
