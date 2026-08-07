@@ -70,7 +70,10 @@ public class PaintManager : Singleton<PaintManager>
 
     private void RefreshGroundTilemap()
     {
-        // 优先通过名字精确找 Ground Tilemap
+        // 引用还有效就不动，保留 Inspector 赋的值
+        // （场景重载后旧引用被销毁，Unity 判 !=null 为 false，才会重新查找）
+        if (groundTilemap != null) return;
+
         var allTilemaps = FindObjectsOfType<Tilemap>();
         foreach (var tm in allTilemaps)
         {
@@ -80,7 +83,6 @@ public class PaintManager : Singleton<PaintManager>
                 return;
             }
         }
-        // 找不到就叫 Ground 的，回退到第一个
         if (allTilemaps.Length > 0)
             groundTilemap = allTilemaps[0];
     }
